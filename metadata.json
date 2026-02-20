@@ -1,0 +1,7 @@
+{
+  "name": "GoalWise AI - Pronosticador de Fútbol",
+  "description": "Una plataforma de análisis deportivo impulsada por IA que analiza mercados de goles utilizando datos de Google Search en tiempo real y genera videos cinematográficos con Veo.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
