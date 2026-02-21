@@ -11,7 +11,8 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ activeTab, setActiveTab, savedCount, children }) => {
   return (
-    <div className="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+    <div className="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-slate-950 relative">
+      <div className="animated-bg"></div>
       <header className="sticky top-0 z-[110] bg-slate-950/80 backdrop-blur-xl border-b border-slate-900">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">

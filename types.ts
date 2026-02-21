@@ -65,3 +65,12 @@ export enum AppTab {
   VEO = 'veo',
   HISTORY = 'history'
 }
+
+declare global {
+  interface Window {
+    aistudio?: {
+      hasSelectedApiKey: () => Promise<boolean>;
+      openSelectKey: () => Promise<void>;
+    };
+  }
+}

@@ -351,6 +351,26 @@ export const MatchAnalysis: React.FC<MatchAnalysisProps> = ({ onSavePick, onSync
                   <p className="text-xs text-slate-400 leading-relaxed">{result.technicalAudit.marketAnalysis}</p>
                </div>
             </div>
+
+            {result.sources && result.sources.length > 0 && (
+              <div className="mt-12 p-8 bg-emerald-500/5 border border-emerald-500/10 rounded-[32px]">
+                <h5 className="text-[9px] font-black text-emerald-500 uppercase tracking-[0.4em] mb-4">Fuentes Verificadas (Google Search Sync)</h5>
+                <div className="flex flex-wrap gap-4">
+                  {result.sources.map((source, idx) => (
+                    <a 
+                      key={idx} 
+                      href={source.uri} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[10px] font-bold text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2 bg-slate-900/50 px-4 py-2 rounded-full border border-slate-800"
+                    >
+                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                      {source.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

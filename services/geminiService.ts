@@ -25,12 +25,22 @@ export class GeminiService {
     URL DEL PARTIDO: ${matchUrl}
     HORA ACTUAL: ${timeString}
 
+    INSTRUCCIONES CRÍTICAS DE SINCRONIZACIÓN:
+    1. Utiliza Google Search para verificar el estado EN TIEMPO REAL del partido.
+    2. Busca en Flashscore, SofaScore, Bet365 o portales de noticias deportivas para obtener:
+       - Marcador exacto actual.
+       - Minuto de juego.
+       - Estadísticas de presión (Ataques peligrosos, posesión).
+       - Córners totales y por equipo.
+       - Tarjetas y expulsiones.
+    3. Si el partido no ha comenzado, analiza las alineaciones confirmadas y las cuotas de apertura vs cuotas actuales.
+
     OBJETIVOS DE ANÁLISIS:
     1. ESCANEO DE MERCADOS: Evalúa Over 1.5/2.5 goles, BTTS, Doble Oportunidad, Hándicap Asiático, y MERCADOS DE CORNERS (Over/Under corners totales).
-    2. FUENTE DE DATOS: Busca en Flashscore y SofaScore el minuto, marcador y estadísticas de presión/corners en tiempo real.
+    2. FUENTE DE DATOS: Prioriza datos de los últimos 5-10 minutos para partidos en vivo.
     3. CÁLCULO DE VALOR (VALUE):
-       - Probabilidad Implícita (PI) = 1 / Cuota actual de Betplay.
-       - Probabilidad Estimada (PE) = Probabilidad real basada en xG, ataques peligrosos y H2H.
+       - Probabilidad Implícita (PI) = 1 / Cuota actual detectada.
+       - Probabilidad Estimada (PE) = Probabilidad real basada en xG live, ataques peligrosos y H2H.
        - EV% = (PE * Cuota) - 1.
     4. FILTRADO: Devuelve ÚNICAMENTE selecciones donde PE > PI (EV positivo). Prioriza cuotas entre 1.50 y 2.50.
 
@@ -62,12 +72,12 @@ export class GeminiService {
       "secondHalf": { "expectedGoals": "X.XX", "insight": "..." },
       "fullMatch": { "expectedGoals": "X.XX", "insight": "..." },
       "technicalAudit": {
-        "statistics": "Detalle xG y stats live",
-        "context": "Motivación y bajas",
+        "statistics": "Detalle xG y stats live verificadas vía Google Search",
+        "context": "Motivación y bajas actualizadas",
         "tactics": "Tendencias H2H y Home/Away",
-        "players": "Impacto de jugadores",
-        "advancedData": "Corners y tarjetas",
-        "marketAnalysis": "Explicación del EV+ detectado"
+        "players": "Impacto de jugadores clave",
+        "advancedData": "Corners y tarjetas proyectados",
+        "marketAnalysis": "Explicación del EV+ detectado comparando cuotas"
       },
       "lastUpdated": "${timeString}"
     }`;
